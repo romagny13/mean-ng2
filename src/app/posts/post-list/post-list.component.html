@@ -1,0 +1,9 @@
+<h1>Articles</h1>
+<hr>
+<a [routerLink]="['/posts/new']" class="btn btn-primary">Add a new post</a>
+<article *ngFor="let post of posts">
+  <header class="entry-header">
+    <h2><a [routerLink]="['/posts/', post._id]">{{ post.title }}</a></h2>
+  </header>
+  <div class="entry-content">{{ post.content }}</div>
+</article>

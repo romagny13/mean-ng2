@@ -1,0 +1,33 @@
+.hrOr {
+    padding: 0;
+    border: none;
+    border-top: 1px solid #eee;
+    color: #cdcdcd;
+    text-align: center;
+}
+
+.hrOr::after {
+    content: "Ou";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    padding: 0 15px;
+    background: #fff;
+}
+
+.entry-header{
+    display: block;
+    padding-bottom: 12px;
+}
+.entry-content{
+    padding-bottom: 24px;
+}
+
+.separator-20{
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.alert{
+    margin-top: 20px;
+}
