@@ -14,21 +14,21 @@ import { Post } from './post';
 @Injectable()
 export class PostService {
   _headers: Headers;
-  _basePath: string;
-  constructor(private http: Http) {
-    this._basePath = 'http://localhost:3000/api/v1/posts';
+  _baseUrl: string;
+  constructor(private _http: Http) {
+    this._baseUrl = 'http://localhost:3000/api/v1/posts';
     this._headers = new Headers({ 'Content-Type': 'application/json' });
   }
 
   getPosts(): Observable<Post[]> {
-    return this.http.get(this._basePath)
+    return this._http.get(this._baseUrl)
       .map((response: Response) => <Post[]>response.json())
       .do((data) => console.log(data))
       .catch((error) => this.handleError(error));
   }
 
   getPost(id: any): any {
-    return this.http.get(`${this._basePath}/${id}`)
+    return this._http.get(`${this._baseUrl}/${id}`)
       .map((response: Response) => <Post>response.json())
       .do((data) => console.log(data))
       .catch((error) => this.handleError(error));
@@ -36,24 +36,26 @@ export class PostService {
 
 
   addPost(post: Post): Observable<any> {
-    return this.http
-      .post(this._basePath, JSON.stringify(post), { headers: this._headers })
-      .map(res => res.json())
+    return this._http
+      .post(this._baseUrl, JSON.stringify(post), { headers: this._headers })
+      .do((data) => console.log(data))
+      .map((response) => response.json())
       .catch((error) => this.handleError(error));
   }
 
-  updatePost(id: any, post: Post) {
-    console.log(id,post);
-    return this.http
-      .put(`${this._basePath}/${id}`, JSON.stringify(post), { headers: this._headers })
-      .map(res => res.json())
+  updatePost(id: any, post: Post): Observable<any> {
+    return this._http
+      .put(`${this._baseUrl}/${id}`, JSON.stringify(post), { headers: this._headers })
+      .do((data) => console.log(data))
+      .map((response) => response.json())
       .catch((error) => this.handleError(error));
   }
 
-  deletePost(id: any) {
-    return this.http
-      .delete(`${this._basePath}/${id}`)
-      .map(res => res.json())
+  deletePost(id: any): Observable<any> {
+    return this._http
+      .delete(`${this._baseUrl}/${id}`)
+      .do((data) => console.log(data))
+      .map((response) => response.json())
       .catch((error) => this.handleError(error));
   }
 

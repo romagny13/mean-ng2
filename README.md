@@ -1,10 +1,14 @@
 # MEAN (Angular 2) demo
 
+- MEAN : MongoDb, Express, Angular 2, Node project
+- Reactive forms
+- http
+
 ## Usage
 ```
 npm i
 ```
-Create a free db on <a href="https://mlab.com/home">mLab</a> with a collection 'posts'
+Create a free db on <a href="https://mlab.com/home">mLab</a> with a collection 'posts'. Add a user and change mongodb connection in 'routes/api'
 
 build
 ```
@@ -20,7 +24,7 @@ ng serve
 ```
 go http://localhost:4200
 
-## Memento
+## How to
 
 - Create Angular project 
 ```
@@ -34,7 +38,6 @@ npm i express mongojs body-parser ejs -S
 ```
 
 - <a href="https://github.com/mafintosh/mongojs">Mongojs</a>
-- <a href="https://mlab.com/home">mLab</a>
 
 - Create server, render index page and create api routes
 

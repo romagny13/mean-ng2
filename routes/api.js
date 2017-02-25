@@ -31,11 +31,10 @@ router.get('/posts/:id', function (req, res, next) {
 // add
 router.post('/posts', function (req, res, next) {
     var post = req.body;
-    console.log(post)
     if (post.title === '' || post.content === '') {
         res.status(400);
         res.json({
-            "error": "Invalid Data"
+            "error": "Invalid data"
         });
     } else {
         db.posts.save(post, function (err, result) {

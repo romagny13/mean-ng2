@@ -11,7 +11,7 @@
         </div>
         </div>
         <div class="form-group" [ngClass]="{'has-error': (form.get('content').touched || form.get('content').dirty) && !form.get('content').valid }">
-            <textarea rows="10" id="content" name="content" class="form-control" formControlName="content"></textarea>
+            <textarea rows="10" id="content" class="form-control" formControlName="content"></textarea>
             <div class="help-block" *ngIf="form.get('content').hasError('required') && form.get('content').touched">
                 Content is required.
             </div>
