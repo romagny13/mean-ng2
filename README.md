@@ -1,6 +1,6 @@
 # MEAN (Angular 2) demo
 
-- MEAN : MongoDb, Express, Angular 2, Node project
+- MEAN : MongoDb, Express, Angular 2, Node
 - Reactive forms
 - http
 
