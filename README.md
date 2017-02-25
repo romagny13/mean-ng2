@@ -1,4 +1,4 @@
-MEAN (Angular 2) demo
+# MEAN (Angular 2) demo
 
 ## Usage
 ```
