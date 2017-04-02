@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/catch';
@@ -27,7 +27,7 @@ export class PostService {
       .catch((error) => this.handleError(error));
   }
 
-  getPost(id: any): any {
+  getPost(id: any): Observable<Post> {
     return this._http.get(`${this._baseUrl}/${id}`)
       .map((response: Response) => <Post>response.json())
       .do((data) => console.log(data))
@@ -35,27 +35,27 @@ export class PostService {
   }
 
 
-  addPost(post: Post): Observable<any> {
+  addPost(post: Post): Observable<Response> {
     return this._http
       .post(this._baseUrl, JSON.stringify(post), { headers: this._headers })
-      .do((data) => console.log(data))
       .map((response) => response.json())
+      .do((data) => console.log(data))
       .catch((error) => this.handleError(error));
   }
 
-  updatePost(id: any, post: Post): Observable<any> {
+  updatePost(id: any, post: Post): Observable<Response> {
     return this._http
       .put(`${this._baseUrl}/${id}`, JSON.stringify(post), { headers: this._headers })
-      .do((data) => console.log(data))
       .map((response) => response.json())
+      .do((data) => console.log(data))
       .catch((error) => this.handleError(error));
   }
 
-  deletePost(id: any): Observable<any> {
+  deletePost(id: any): Observable<Response> {
     return this._http
       .delete(`${this._baseUrl}/${id}`)
-      .do((data) => console.log(data))
       .map((response) => response.json())
+      .do((data) => console.log(data))
       .catch((error) => this.handleError(error));
   }
 
@@ -63,5 +63,4 @@ export class PostService {
     console.error(error);
     return Observable.throw(`Error status code ${error.status} at ${error.url}`);
   }
-
 }

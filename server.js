@@ -1,19 +1,18 @@
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
+var express = require('express'),
+  path = require('path'),
+  bodyParser = require('body-parser'),
+  api = require('./routes/api');
 var app = express();
 
-var api = require('./routes/api');
-
-app.set('views', path.join(__dirname, 'views'));
+// view engine
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
-
+//
 app.use(express.static(path.join(__dirname, 'dist')));
-
+// body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+// cors
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH,DELETE');

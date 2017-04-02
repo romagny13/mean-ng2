@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.28.3",
-    "name": "mean-blog"
+    "name": "ng2-auth0"
   },
   "apps": [
     {
@@ -22,8 +22,8 @@
         "styles.css"
       ],
       "scripts": [],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
