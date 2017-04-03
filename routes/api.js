@@ -1,9 +1,8 @@
 var express = require('express'),
   router = express.Router(),
   mongojs = require('mongojs');
-var db = mongojs('mongodb://marie:marie@ds161059.mlab.com:61059/romagny13_blog', ['posts']);
 // create a free db on mLab https://mlab.com/home
-// var db = mongojs('<mongo-mlab-db>', ['posts']);
+  var db = mongojs('<mongo-mlab-db>', ['posts']);
 
 // get http://localhost:3000/api/v1/posts
 router.get('/posts', function (req, res, next) {
